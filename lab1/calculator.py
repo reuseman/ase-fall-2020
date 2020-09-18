@@ -11,6 +11,9 @@ def sum(m, n):
 
  
 def divide(m, n):
+    if n == 0:
+        raise ZeroDivisionError("Division by zero not allowed") 
+
     sign = 1
     if not is_positive(m):
         sign *= -1
