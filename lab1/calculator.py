@@ -1,5 +1,3 @@
-import math
-
 def sum(m, n):
     result = m
     increment = 1 if is_positive(n) else -1
@@ -9,10 +7,20 @@ def sum(m, n):
 
     return result
 
- 
+
+def subtract(m, n):
+    return sum(m, -n)
+
+
+def multiply(m, n):
+    if n == 0:
+        return 0
+    return divide(m, 1 / n)
+
+
 def divide(m, n):
     if n == 0:
-        raise ZeroDivisionError("Division by zero not allowed") 
+        raise ZeroDivisionError("Division by zero not allowed")
 
     sign = 1
     if not is_positive(m):
@@ -23,17 +31,12 @@ def divide(m, n):
         n *= -1
 
     result = 0
-    while (m >= n and m > 0):
+    while m >= n and m > 0:
         result += 1
         m -= n
 
     return result * sign
 
+
 def is_positive(x):
     return x >= 0
-    
- 
-if __name__ == "__main__":
-    print(sum(3,3))
-    print(sum(5, -5))
-    print(sum(3, -8))
